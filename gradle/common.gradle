@@ -1,0 +1,46 @@
+def hasLibraryPlugin = pluginManager.hasPlugin("com.android.library")
+def hasApplicationPlugin = pluginManager.hasPlugin("com.android.application")
+def hasDFMPlugin = pluginManager.hasPlugin("com.android.dynamic-feature")
+def hasScabbardPlugin = pluginManager.hasPlugin("scabbard.gradle")
+
+if (hasLibraryPlugin || hasApplicationPlugin || hasDFMPlugin) {
+    if (hasScabbardPlugin) {
+        scabbard {
+            enabled = true
+            failOnError = true
+            fullBindingGraphValidation = true
+        }
+    }
+
+    android {
+        compileSdk = Versions.compileSdk
+
+        defaultConfig {
+            minSdk = Versions.minSdk
+            targetSdk = Versions.targetSdk
+
+            if (!hasDFMPlugin) {
+                multiDexEnabled = true
+            }
+        }
+
+        sourceSets {
+            main.java.srcDirs += 'src/main/kotlin/'
+        }
+
+        compileOptions {
+            sourceCompatibility = Versions.javaVersion
+            targetCompatibility = Versions.javaVersion
+        }
+
+        kotlinOptions {
+            jvmTarget = Versions.jvmTarget
+        }
+
+        testOptions {
+            unitTests.all {
+                useJUnitPlatform()
+            }
+        }
+    }
+}

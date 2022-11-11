@@ -1,0 +1,4 @@
+rootProject.name = "dab"
+include ':app'
+include ':core:designsystem'
+include ':feature:home'
