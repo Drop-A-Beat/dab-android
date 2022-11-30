@@ -1,4 +1,9 @@
 rootProject.name = "dab"
 include ':app'
+include ':core:data'
 include ':core:designsystem'
 include ':feature:home'
+
+include ':feature:playlist'
+include ':feature:search'
+include ':feature:info'

@@ -8,9 +8,14 @@ object Dependencies {
 
     object Ktx {
         const val Core = "androidx.core:core-ktx:${Versions.Ktx.Core}"
+        const val Trace = "androidx.tracing:tracing-ktx:${Versions.Ktx.Trace}"
+        const val AppCompat = "androidx.appcompat:appcompat:${Versions.Ktx.AppCompat}"
+        const val Material = "com.google.android.material:material:${Versions.Ktx.Material}"
         const val Fragment = "androidx.fragment:fragment-ktx:${Versions.Ktx.Fragment}"
         const val Activity = "androidx.activity:activity-ktx:${Versions.Ktx.Activity}"
         const val Lifecycle = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.Ktx.Lifecycle}"
+        const val Accompanist = "com.google.accompanist:accompanist-systemuicontroller:${Versions.Ktx.Accompanist}"
+        const val Splash = "androidx.core:core-splashscreen:${Versions.Ktx.Splash}"
     }
 
     object Jetpack {
@@ -36,6 +41,7 @@ object Dependencies {
 
     val Compose = listOf(
         "androidx.compose.material:material:${Versions.Compose.Main}",
+        "androidx.compose.material3:material3:${Versions.Compose.Meterial3}",
         "androidx.compose.runtime:runtime-livedata:${Versions.Compose.Main}",
         "androidx.activity:activity-compose:${Versions.Compose.Activity}",
         "com.github.skydoves:landscapist-coil:${Versions.Compose.Landscapist}",
@@ -45,6 +51,7 @@ object Dependencies {
         "androidx.lifecycle:lifecycle-runtime-compose:${Versions.Compose.LifecycleCompose}",
         "com.google.accompanist:accompanist-navigation-animation:${Versions.Compose.Accompanist}",
         "androidx.hilt:hilt-navigation-compose:${Versions.Compose.HiltNavigation}",
+        "androidx.navigation:navigation-compose:${Versions.Compose.Navigation}"
     )
 
     val Network = listOf(

@@ -11,9 +11,14 @@ object Versions {
 
     object Ktx {
         const val Core = "1.8.0"
+        const val Trace = "1.1.0"
+        const val AppCompat = "1.5.1"
+        const val Material = "1.7.0"
         const val Fragment = "1.4.1"
         const val Activity = "1.4.0"
         const val Lifecycle = "2.4.1"
+        const val Accompanist = "0.27.0"
+        const val Splash = "1.0.0"
     }
 
     object Essential {
@@ -23,12 +28,14 @@ object Versions {
 
     object Compose {
         const val Main = "1.2.0-rc01"
+        const val Meterial3 = "1.0.1"
         const val Activity = "1.6.0-alpha05"
         const val Landscapist = "1.5.2"
         const val ConstraintLayout = "1.0.1"
         const val LifecycleCompose = "2.6.0-alpha01"
         const val Accompanist = "0.24.4-alpha"
         const val HiltNavigation = "1.0.0"
+        const val Navigation = "2.6.0-alpha04"
     }
 
     object Jetpack {

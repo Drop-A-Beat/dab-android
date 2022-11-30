@@ -16,5 +16,5 @@ android {
 }
 
 dependencies {
-
+    Dependencies.Compose.forEach(::implementation)
 }

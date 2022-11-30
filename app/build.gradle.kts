@@ -10,6 +10,7 @@ plugins {
 android {
     namespace = "com.dab.android.app"
     defaultConfig {
+        applicationId = "com.dab.android.app"
         versionCode = Versions.versionCode
         versionName = Versions.versionName
     }
@@ -32,6 +33,22 @@ android {
     }
 }
 dependencies {
+    implementation(project(":core:data"))
+    implementation(project(":core:designsystem"))
+
+    implementation(project(":feature:home"))
+    implementation(project(":feature:playlist"))
+    implementation(project(":feature:search"))
+    implementation(project(":feature:info"))
+
+    implementation(Dependencies.Ktx.Core)
+    implementation(Dependencies.Ktx.Trace)
+    implementation(Dependencies.Ktx.AppCompat)
+    implementation(Dependencies.Ktx.Material)
+    implementation(Dependencies.Ktx.Accompanist)
+    implementation(Dependencies.Ktx.Splash)
+
+
     val dependencies = listOf(
         Dependencies.Jetpack.Hilt,
     ).dependenciesFlatten()
@@ -39,6 +56,7 @@ dependencies {
 
     implementation(Dependencies.Orbit.Main)
     implementation(Dependencies.Jetpack.Hilt)
+
     kapt(Dependencies.Compiler.Hilt)
     Dependencies.Compose.forEach(::implementation)
     Dependencies.Debug.Compose.forEach(::debugImplementation)
