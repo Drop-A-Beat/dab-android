@@ -9,11 +9,13 @@ plugins {
 
 android {
     namespace = "com.dab.android.app"
+
     defaultConfig {
         applicationId = "com.dab.android.app"
         versionCode = Versions.versionCode
         versionName = Versions.versionName
     }
+
     buildTypes {
         debug {
             aaptOptions.cruncherEnabled = false // png optimization (default: true)
@@ -34,7 +36,10 @@ android {
 }
 dependencies {
     implementation(project(":core:data"))
+    implementation(project(":core:domain"))
     implementation(project(":core:designsystem"))
+    implementation(project(":core:model"))
+    implementation(project(":core:ui"))
 
     implementation(project(":feature:home"))
     implementation(project(":feature:playlist"))

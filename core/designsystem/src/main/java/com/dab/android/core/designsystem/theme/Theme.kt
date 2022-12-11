@@ -3,14 +3,12 @@ package com.dab.android.core.designsystem.theme
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.MaterialTheme
+import androidx.compose.material3.Typography
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.NonRestartableComposable
 import androidx.compose.runtime.ReadOnlyComposable
-import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 
 
 @Composable
@@ -25,38 +23,7 @@ fun DabTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable ()
         circleRoundCornerShape = RoundedCornerShape(20.dp)
     )
 
-    val localDabTypography = DabTypography(
-        title1 = TextStyle(
-            fontSize = 24.sp,
-            lineHeight = 28.8.sp,
-            fontWeight = FontWeight.Bold,
-            color = localDabColors.surfaceOppositeColor
-        ),
-        title2 = TextStyle(
-            fontSize = 26.sp,
-            lineHeight = 28.8.sp,
-            fontWeight = FontWeight.Bold,
-            color = localDabColors.surfaceOppositeColor
-        ),
-        body1 = TextStyle(
-            fontSize = 14.sp,
-            lineHeight = 16.4.sp,
-            fontWeight = FontWeight.W400,
-            color = localDabColors.surfaceOppositeColor
-        ),
-        body2 = TextStyle(
-            fontSize = 12.sp,
-            lineHeight = 14.6.sp,
-            fontWeight = FontWeight.W400,
-            color = localDabColors.surfaceOppositeColor
-        ),
-        body3 = TextStyle(
-            fontSize = 18.sp,
-            lineHeight = 24.3.sp,
-            fontWeight = FontWeight.W400,
-            color = localDabColors.surfaceOppositeColor
-        )
-    )
+    val localDabTypography = DabTypography
 
     CompositionLocalProvider(
         LocalDabColors provides localDabColors,
@@ -102,7 +69,7 @@ object DabTheme {
         @NonRestartableComposable
         get() = LocalDabShapes.current
 
-    val typography: DabTypography
+    val typography: Typography
         @Composable
         @ReadOnlyComposable
         @NonRestartableComposable

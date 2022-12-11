@@ -29,6 +29,7 @@ object Versions {
     object Compose {
         const val Main = "1.2.0-rc01"
         const val Meterial3 = "1.0.1"
+        const val Preview = "1.4.0-alpha02"
         const val Activity = "1.6.0-alpha05"
         const val Landscapist = "1.5.2"
         const val ConstraintLayout = "1.0.1"
@@ -36,6 +37,7 @@ object Versions {
         const val Accompanist = "0.24.4-alpha"
         const val HiltNavigation = "1.0.0"
         const val Navigation = "2.6.0-alpha04"
+        const val Coil = "2.2.2"
     }
 
     object Jetpack {

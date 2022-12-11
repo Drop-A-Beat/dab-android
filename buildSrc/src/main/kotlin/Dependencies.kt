@@ -30,6 +30,10 @@ object Dependencies {
         const val Hilt = "com.google.dagger:hilt-android-compiler:${Versions.Jetpack.Hilt}"
     }
 
+    object Image {
+        const val Coil = "io.coil-kt:coil-compose:${Versions.Compose.Coil}"
+    }
+
     object Debug {
         const val LeakCanary =
             "com.squareup.leakcanary:leakcanary-android:${Versions.Util.LeakCanary}"
@@ -42,6 +46,7 @@ object Dependencies {
     val Compose = listOf(
         "androidx.compose.material:material:${Versions.Compose.Main}",
         "androidx.compose.material3:material3:${Versions.Compose.Meterial3}",
+        "androidx.compose.ui:ui-tooling-preview:${Versions.Compose.Preview}",
         "androidx.compose.runtime:runtime-livedata:${Versions.Compose.Main}",
         "androidx.activity:activity-compose:${Versions.Compose.Activity}",
         "com.github.skydoves:landscapist-coil:${Versions.Compose.Landscapist}",
@@ -57,7 +62,8 @@ object Dependencies {
     val Network = listOf(
         "com.squareup.retrofit2:retrofit:${Versions.Network.Retrofit}",
         "com.squareup.okhttp3:logging-interceptor:${Versions.Network.OkHttp}",
-        "com.squareup.retrofit2:converter-jackson:${Versions.Network.Retrofit}"
+        "com.squareup.retrofit2:converter-jackson:${Versions.Network.Retrofit}",
+        "com.squareup.retrofit2:converter-gson:${Versions.Network.Retrofit}"
     )
 
     val Test = listOf(

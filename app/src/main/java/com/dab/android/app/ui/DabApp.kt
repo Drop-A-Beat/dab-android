@@ -64,7 +64,7 @@ fun DabApp(
             contentColor = MaterialTheme.colorScheme.onBackground,
             contentWindowInsets = WindowInsets(0, 0, 0, 0),
             snackbarHost = { SnackbarHost(snackbarHostState) },
-            topBar = { },
+            topBar = {  },
             bottomBar = {
                 DabBottomBar(
                     destinations = appState.topLevelDestinations,
