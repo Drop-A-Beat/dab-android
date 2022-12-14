@@ -14,9 +14,10 @@ import com.dab.android.core.designsystem.theme.DabTheme
 fun MainTitle(text: String, modifier: Modifier = Modifier) {
     Text(
         text = text,
-        style = DabTheme.typography.headlineMedium.copy(fontWeight = FontWeight.ExtraBold),
-        modifier = modifier
-            .padding(start = 8.dp, end = 4.dp, bottom = 8.dp, top = 24.dp)
+        style = DabTheme.typography.titleLarge.copy(fontWeight = FontWeight.ExtraBold),
+        modifier = Modifier
+            .padding(start = 8.dp, bottom = 5.dp, top = 5.dp)
             .semantics { heading() }
+            .then(modifier)
     )
 }

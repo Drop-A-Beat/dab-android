@@ -12,6 +12,7 @@ import androidx.compose.material3.SnackbarDuration
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -23,6 +24,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.semantics.testTagsAsResourceId
+import androidx.compose.ui.zIndex
 import androidx.lifecycle.compose.ExperimentalLifecycleComposeApi
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavDestination
@@ -34,6 +36,8 @@ import com.dab.android.core.data.util.NetworkMonitor
 import com.dab.android.core.designsystem.component.DabNavigationBar
 import com.dab.android.core.designsystem.component.DabNavigationBarItem
 import com.dab.android.core.designsystem.component.DabSurface
+import com.dab.android.core.designsystem.component.DabTopAppBar
+import com.dab.android.core.designsystem.icon.DabIcons
 import com.dab.android.core.designsystem.icon.Icon
 
 @OptIn(
@@ -64,7 +68,21 @@ fun DabApp(
             contentColor = MaterialTheme.colorScheme.onBackground,
             contentWindowInsets = WindowInsets(0, 0, 0, 0),
             snackbarHost = { SnackbarHost(snackbarHostState) },
-            topBar = {  },
+            topBar = {
+                val destination = appState.currentTopLevelDestination
+                if (destination != null) {
+                    DabTopAppBar(
+                        modifier = Modifier.zIndex(-1F),
+                        title = destination.iconTextId,
+                        actionIcon = DabIcons.Settings,
+                        actionIconContentDescription = "",
+                        colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
+                            containerColor = Color.Transparent
+                        ),
+                        onActionClick = {  }
+                    )
+                }
+            },
             bottomBar = {
                 DabBottomBar(
                     destinations = appState.topLevelDestinations,

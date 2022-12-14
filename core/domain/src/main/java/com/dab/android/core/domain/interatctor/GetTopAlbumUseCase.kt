@@ -8,7 +8,6 @@ import javax.inject.Inject
 
 class GetTopAlbumUseCase @Inject constructor(private val albumRepository: AlbumRepository) :
     BaseUseCase<Nothing?, Record<List<Album>>>() {
-
     override suspend fun run(request: Nothing?): Record<List<Album>> {
         return albumRepository.getAlbum()
     }

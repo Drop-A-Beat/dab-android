@@ -9,8 +9,6 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -21,7 +19,6 @@ import com.dab.android.core.designsystem.component.StaggeredGrid
 import com.dab.android.core.ui.album.AlbumsUiState
 import com.dab.android.core.ui.album.albumList
 import com.dab.android.core.ui.song.TopSongList
-import kotlinx.coroutines.flow.reduce
 
 @OptIn(ExperimentalLifecycleComposeApi::class)
 @Composable
@@ -62,7 +59,7 @@ private fun HomeScreen(
 }
 @Composable
 private fun RecentPlayed(topAlbumUiState: AlbumsUiState) {
-    MainTitle("Recently Played")
+    MainTitle("Recently Played", modifier = Modifier.padding(top = 0.dp))
     LazyRow {
         albumList(topAlbumUiState)
     }
