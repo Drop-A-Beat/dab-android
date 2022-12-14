@@ -1,5 +1,6 @@
 package com.dab.android.app.ui
 
+import android.util.Log
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.remember
@@ -70,6 +71,7 @@ class DabAppState(
         )
 
     val topLevelDestinations: List<TopLevelDestination> = TopLevelDestination.values().asList()
+    var currentTopLevel = DAB_HOME
 
     fun onBackClick() {
         navController.navigateUp()
@@ -78,16 +80,10 @@ class DabAppState(
     fun navigateToTopLevelDestination(topLevelDestination: TopLevelDestination) {
         trace("Navigation: ${topLevelDestination.name}") {
             val topLevelNavOptions = navOptions {
-                // Pop up to the start destination of the graph to
-                // avoid building up a large stack of destinations
-                // on the back stack as users select items
                 popUpTo(navController.graph.findStartDestination().id) {
                     saveState = true
                 }
-                // Avoid multiple copies of the same destination when
-                // reselecting the same item
                 launchSingleTop = true
-                // Restore state when reselecting a previously selected item
                 restoreState = true
             }
 
@@ -97,6 +93,7 @@ class DabAppState(
                 DAB_SEARCH -> navController.navigateToSearch(topLevelNavOptions)
                 DAB_INFO -> navController.navigateToInfo(topLevelNavOptions)
             }
+            currentTopLevel = topLevelDestination
         }
     }
 }

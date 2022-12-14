@@ -7,8 +7,8 @@ fun LazyListScope.albumList(
     albumsState: AlbumsUiState
 ) {
     when (albumsState) {
-        AlbumsUiState.Loading -> Unit
-        AlbumsUiState.Error -> Unit
+        AlbumsUiState.Loading -> { }
+        AlbumsUiState.Error -> { }
         is AlbumsUiState.Success -> {
             items(albumsState.albums.size) { index ->
                 AlbumCard(

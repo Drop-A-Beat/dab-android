@@ -16,5 +16,7 @@ dependencies {
     implementation(Dependencies.Jetpack.Hilt)
     implementation(Dependencies.Coroutine)
 
+    implementation(Dependencies.Orbit.Main)
+
     kapt(Dependencies.Compiler.Hilt)
 }

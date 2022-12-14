@@ -35,7 +35,7 @@ object Versions {
         const val ConstraintLayout = "1.0.1"
         const val LifecycleCompose = "2.6.0-alpha01"
         const val Accompanist = "0.24.4-alpha"
-        const val HiltNavigation = "1.0.0"
+        const val HiltNavigation = "1.0.0-beta01"
         const val Navigation = "2.6.0-alpha04"
         const val Coil = "2.2.2"
     }

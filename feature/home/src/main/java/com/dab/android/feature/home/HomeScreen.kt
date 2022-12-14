@@ -7,7 +7,10 @@ import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -18,6 +21,7 @@ import com.dab.android.core.designsystem.component.StaggeredGrid
 import com.dab.android.core.ui.album.AlbumsUiState
 import com.dab.android.core.ui.album.albumList
 import com.dab.android.core.ui.song.TopSongList
+import kotlinx.coroutines.flow.reduce
 
 @OptIn(ExperimentalLifecycleComposeApi::class)
 @Composable
@@ -25,12 +29,22 @@ internal fun HomeRoute(
     modifier: Modifier = Modifier,
     viewModel: HomeViewModel = hiltViewModel()
 ) {
-    val topAlbumUiState: AlbumsUiState by viewModel.topAlbumUiState.collectAsStateWithLifecycle()
+    val state: HomeState by viewModel.uiState.collectAsStateWithLifecycle()
+    val topAlbumUiState = state.topAlbumState
+
+    LaunchedEffect(viewModel.uiSideEffect) {
+        viewModel.uiSideEffect.collect { sideEffect ->
+            when (sideEffect) {
+                is HomeSideEffect.GetTopAlbum -> viewModel.setTopAlbum(sideEffect.albumsUiState)
+            }
+        }
+    }
 
     HomeScreen(
         topAlbumUiState = topAlbumUiState,
         modifier = modifier
     )
+
 }
 
 @Composable
@@ -38,9 +52,8 @@ private fun HomeScreen(
     topAlbumUiState: AlbumsUiState,
     modifier: Modifier = Modifier
 ) {
-    val scrollState = rememberScrollState(0)
     Column(
-        modifier = Modifier.verticalScroll(state = scrollState)
+        modifier = Modifier.verticalScroll(rememberScrollState())
     ) {
         RecentPlayed(topAlbumUiState)
         TopAlbums(topAlbumUiState)
@@ -64,7 +77,6 @@ private fun TopAlbums(topAlbumUiState: AlbumsUiState) {
 
 @Composable
 private fun TopSongs(topAlbumUiState: AlbumsUiState) {
-    val scroll = rememberScrollState(0)
     MainTitle("Charts: Hot Tracks")
     StaggeredGrid(
         modifier = Modifier

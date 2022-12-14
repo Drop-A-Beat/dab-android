@@ -56,7 +56,7 @@ object Dependencies {
         "androidx.lifecycle:lifecycle-runtime-compose:${Versions.Compose.LifecycleCompose}",
         "com.google.accompanist:accompanist-navigation-animation:${Versions.Compose.Accompanist}",
         "androidx.hilt:hilt-navigation-compose:${Versions.Compose.HiltNavigation}",
-        "androidx.navigation:navigation-compose:${Versions.Compose.Navigation}"
+//        "androidx.navigation:navigation-compose:${Versions.Compose.Navigation}"
     )
 
     val Network = listOf(

@@ -6,10 +6,10 @@ import com.dab.android.core.ui.album.AlbumsUiState
 @Composable
 fun TopSongList(albumsState: AlbumsUiState) {
     when (albumsState) {
-        AlbumsUiState.Loading -> Unit
-        AlbumsUiState.Error -> Unit
+        AlbumsUiState.Loading -> { }
+        AlbumsUiState.Error -> { }
         is AlbumsUiState.Success -> {
-            albumsState.albums.forEach { album ->
+            albumsState.albums.take(20).forEach { album ->
                 TopSongCard(album)
             }
         }

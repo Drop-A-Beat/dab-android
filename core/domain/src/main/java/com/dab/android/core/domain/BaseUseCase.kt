@@ -1,5 +1,6 @@
 package com.dab.android.core.domain
 
+import android.util.Log
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
@@ -10,9 +11,10 @@ abstract class BaseUseCase<REQUEST, RESPONSE> {
 
     open val dispatcher: CoroutineDispatcher = Dispatchers.IO
 
-    operator fun invoke(
+    suspend operator fun invoke(
         request: REQUEST? = null
     ): Flow<RESPONSE> = flow {
+        Log.d("BaseUseCase", "TEST")
         emit(run(request = request))
     }.flowOn(dispatcher)
 

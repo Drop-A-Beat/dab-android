@@ -28,5 +28,8 @@ dependencies {
     Dependencies.Compose.forEach(::implementation)
     implementation(Dependencies.Jetpack.Hilt)
     implementation(Dependencies.Coroutine)
+
+    implementation(Dependencies.Orbit.Main)
+
     kapt(Dependencies.Compiler.Hilt)
 }
