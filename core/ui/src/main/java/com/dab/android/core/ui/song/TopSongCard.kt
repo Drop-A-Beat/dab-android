@@ -3,12 +3,15 @@ package com.dab.android.core.ui.song
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
 import androidx.compose.material.Text
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -16,6 +19,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import com.dab.android.core.designsystem.icon.DabIcons
 import com.dab.android.core.designsystem.theme.DabTheme
 import com.dab.android.core.model.Album
 import com.dab.android.core.ui.album.AlbumImage
@@ -33,7 +37,9 @@ fun TopSongCard (album: Album) {
 
             })
     ) {
-        Row(verticalAlignment = Alignment.CenterVertically) {
+        Row(verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier.fillMaxWidth()
+        ) {
             Text(
                 modifier = Modifier.padding(3.dp),
                 text = album.id.toString(),
@@ -44,7 +50,7 @@ fun TopSongCard (album: Album) {
                 .padding(5.dp),
                 imageUrl = album.imageUrl
             )
-            Column {
+            Column(modifier = Modifier.weight(1f)) {
                 Text(
                     text = album.song,
                     style = DabTheme.typography.labelLarge.copy(fontWeight = FontWeight.Bold),
@@ -58,7 +64,15 @@ fun TopSongCard (album: Album) {
                     overflow = TextOverflow.Ellipsis
                 )
             }
-
+            IconButton(
+                modifier = Modifier.weight(0.3f),
+                onClick = { }) {
+                Icon(
+                    imageVector = DabIcons.Play,
+                    contentDescription = "",
+                    tint = DabTheme.colors.surfaceOppositeColor
+                )
+            }
         }
     }
 }

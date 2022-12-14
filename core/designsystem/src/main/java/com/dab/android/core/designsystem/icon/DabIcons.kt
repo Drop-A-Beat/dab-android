@@ -2,6 +2,7 @@ package com.dab.android.core.designsystem.icon
 
 import androidx.annotation.DrawableRes
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material.icons.rounded.Home
 import androidx.compose.material.icons.rounded.Person
 import androidx.compose.material.icons.rounded.Search
@@ -15,6 +16,7 @@ object DabIcons {
     val Search = Icons.Rounded.Search
     val Info = Icons.Rounded.Person
     val Settings = Icons.Rounded.Settings
+    val Play = Icons.Default.PlayArrow
 }
 sealed class Icon {
     data class ImageVectorIcon(val imageVector: ImageVector) : Icon()
