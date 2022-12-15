@@ -17,7 +17,7 @@ fun DabNavigationBar(
 ) {
     NavigationBar(
         modifier = modifier,
-        containerColor = DabTheme.colors.surfaceVariantColor,
+        containerColor = DabTheme.colors.surfaceColor,
         tonalElevation = 0.dp,
         content = content
     )
@@ -43,9 +43,9 @@ fun RowScope.DabNavigationBarItem(
         alwaysShowLabel = alwaysShowLabel,
         colors = NavigationBarItemDefaults.colors(
             selectedIconColor = DabTheme.colors.primaryColor,
-            unselectedIconColor = DabTheme.colors.surfaceOppositeColor,
-            selectedTextColor = DabTheme.colors.primaryColor,
-            unselectedTextColor = DabTheme.colors.surfaceOppositeColor,
+            unselectedIconColor = DabTheme.colors.iconColor,
+            selectedTextColor = DabTheme.colors.surfaceOppositeColor,
+            unselectedTextColor = DabTheme.colors.iconColor,
             indicatorColor = Color.Transparent
         )
     )

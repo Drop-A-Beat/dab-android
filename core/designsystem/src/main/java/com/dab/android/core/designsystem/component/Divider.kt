@@ -7,6 +7,6 @@ import com.dab.android.core.designsystem.theme.DabTheme
 @Composable
 fun DabBottomDivider() {
     Divider(
-        color = DabTheme.colors.iconColor.copy(alpha = 0.3f)
+        color = DabTheme.colors.iconColor.copy(alpha = 0.1f)
     )
 }

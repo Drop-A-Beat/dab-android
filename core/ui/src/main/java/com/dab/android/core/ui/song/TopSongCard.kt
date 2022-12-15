@@ -30,7 +30,7 @@ fun TopSongCard (album: Album) {
     Card(
         shape = DabTheme.shapes.smallRoundCornerShape,
         elevation = CardDefaults.cardElevation(0.dp),
-        colors = CardDefaults.cardColors(containerColor = DabTheme.colors.surfaceVariantColor),
+        colors = CardDefaults.cardColors(containerColor = DabTheme.colors.subColor),
         modifier = Modifier
             .clip(RoundedCornerShape(8.dp))
             .width(280.dp)

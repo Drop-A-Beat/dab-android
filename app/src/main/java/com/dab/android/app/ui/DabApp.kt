@@ -168,7 +168,7 @@ private fun DabPlayBottomBar(album: Album) {
     Box(
         modifier = Modifier
             .height(55.dp)
-            .background(color = DabTheme.colors.surfaceVariantColor),
+            .background(color = DabTheme.colors.surfaceColor),
     ) {
         Row(
             modifier = Modifier.padding(10.dp),
