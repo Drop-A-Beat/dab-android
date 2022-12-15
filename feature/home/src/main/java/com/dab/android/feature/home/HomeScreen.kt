@@ -82,6 +82,4 @@ private fun TopSongs(topAlbumUiState: AlbumsUiState) {
     ) {
         TopSongList(topAlbumUiState)
     }
-
-
 }

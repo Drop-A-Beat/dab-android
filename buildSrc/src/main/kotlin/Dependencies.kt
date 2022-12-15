@@ -44,7 +44,6 @@ object Dependencies {
     }
 
     val Compose = listOf(
-        "androidx.compose.material:material:${Versions.Compose.Main}",
         "androidx.compose.material3:material3:${Versions.Compose.Meterial3}",
         "androidx.compose.ui:ui-tooling-preview:${Versions.Compose.Preview}",
         "androidx.compose.runtime:runtime-livedata:${Versions.Compose.Main}",
