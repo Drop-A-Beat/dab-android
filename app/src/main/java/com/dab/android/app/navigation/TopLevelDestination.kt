@@ -1,30 +1,30 @@
 package com.dab.android.app.navigation
 
+import com.dab.android.core.designsystem.icon.DabIcon
 import com.dab.android.core.designsystem.icon.DabIcons.Home
 import com.dab.android.core.designsystem.icon.DabIcons.Info
 import com.dab.android.core.designsystem.icon.DabIcons.PlayList
 import com.dab.android.core.designsystem.icon.DabIcons.Search
-import com.dab.android.core.designsystem.icon.Icon
 
 
 enum class TopLevelDestination(
-    val icon: Icon,
+    val icon: DabIcon,
     val iconTextId: String
 ) {
     DAB_HOME (
-        icon = Icon.ImageVectorIcon(Home),
+        icon = DabIcon.ImageVectorIcon(Home),
         iconTextId = "Home"
     ),
     DAB_PLAY_LIST (
-        icon = Icon.DrawableResourceIcon(PlayList),
+        icon = DabIcon.DrawableResourceIcon(PlayList),
         iconTextId = "Play List"
     ),
     DAB_SEARCH (
-        icon = Icon.ImageVectorIcon(Search),
+        icon = DabIcon.ImageVectorIcon(Search),
         iconTextId = "Search"
     ),
     DAB_INFO (
-        icon = Icon.ImageVectorIcon(Info),
+        icon = DabIcon.ImageVectorIcon(Info),
         iconTextId = "Info"
     )
 }

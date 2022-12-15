@@ -17,7 +17,7 @@ fun DabNavigationBar(
 ) {
     NavigationBar(
         modifier = modifier,
-        contentColor = DabTheme.colors.surfaceVariantColor,
+        containerColor = DabTheme.colors.surfaceVariantColor,
         tonalElevation = 0.dp,
         content = content
     )

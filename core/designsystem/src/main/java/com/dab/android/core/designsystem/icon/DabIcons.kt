@@ -17,8 +17,10 @@ object DabIcons {
     val Info = Icons.Rounded.Person
     val Settings = Icons.Rounded.Settings
     val Play = Icons.Default.PlayArrow
+    val SkipPre = R.drawable.ic_skip_pre
+    val SkipNext = R.drawable.ic_skip_next
 }
-sealed class Icon {
-    data class ImageVectorIcon(val imageVector: ImageVector) : Icon()
-    data class DrawableResourceIcon(@DrawableRes val id: Int) : Icon()
+sealed class DabIcon {
+    data class ImageVectorIcon(val imageVector: ImageVector) : DabIcon()
+    data class DrawableResourceIcon(@DrawableRes val id: Int) : DabIcon()
 }
