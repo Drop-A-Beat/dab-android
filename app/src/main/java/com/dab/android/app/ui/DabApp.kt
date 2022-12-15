@@ -70,7 +70,7 @@ fun DabApp(
             snackbarHost = { SnackbarHost(snackbarHostState) },
             topBar = {
                 val destination = appState.currentTopLevelDestination
-                if (destination != null) {
+                if (destination != null && destination != TopLevelDestination.DAB_HOME) {
                     DabTopAppBar(
                         modifier = Modifier.zIndex(-1F),
                         title = destination.iconTextId,

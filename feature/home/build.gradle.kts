@@ -26,10 +26,12 @@ dependencies {
     implementation(project(":core:ui"))
 
     Dependencies.Compose.forEach(::implementation)
+    implementation(Dependencies.Ktx.Accompanist)
     implementation(Dependencies.Jetpack.Hilt)
     implementation(Dependencies.Coroutine)
 
     implementation(Dependencies.Orbit.Main)
+    implementation(Dependencies.Image.Coil)
 
     kapt(Dependencies.Compiler.Hilt)
 }
