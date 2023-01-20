@@ -1,9 +1,6 @@
 plugins {
-    id("com.android.library")
-    id("kotlin-android")
-    id("kotlin-kapt")
-    id("dagger.hilt.android.plugin")
-    id ("kotlin-parcelize")
+    id("dab.android.library")
+    id("dab.android.hilt")
 }
 
 android {
@@ -18,11 +15,12 @@ dependencies {
     implementation(project(":core:domain"))
     implementation(project(":core:model"))
 
-    implementation(Dependencies.Ktx.Core)
-    implementation(Dependencies.Coroutine)
-    implementation(Dependencies.Jetpack.Hilt)
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.kotlinx.coroutines.android)
+    implementation(libs.okhttp.logging)
+    implementation(libs.retrofit.core)
+    implementation(libs.retrofit.gson)
 
-    Dependencies.Network.forEach(::implementation)
-
-    kapt(Dependencies.Compiler.Hilt)
+    testImplementation(libs.kotlinx.coroutines.test)
+    testImplementation(libs.mockk)
 }

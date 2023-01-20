@@ -42,11 +42,11 @@ object RetrofitModule {
     @Provides
     fun providesOkHttpClient(retrofitInterceptor: DabInterceptor, cache: Cache): OkHttpClient {
         val okHttpClient = OkHttpClient.Builder()
-        if (BuildConfig.DEBUG) {
-            val loggingInterceptor = HttpLoggingInterceptor()
-            loggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
-            okHttpClient.addNetworkInterceptor(loggingInterceptor)
-        }
+//        if (BuildConfig.DEBUG) {
+//            val loggingInterceptor = HttpLoggingInterceptor()
+//            loggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
+//            okHttpClient.addNetworkInterceptor(loggingInterceptor)
+//        }
         okHttpClient.addInterceptor(retrofitInterceptor)
         okHttpClient.cache(cache)
         okHttpClient.writeTimeout(ApiConstants.TIMEOUT, TimeUnit.SECONDS)

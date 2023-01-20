@@ -1,8 +1,6 @@
 plugins {
-    id("com.android.library")
-    id("kotlin-android")
-    id("kotlin-kapt")
-    id("dagger.hilt.android.plugin")
+    id("dab.android.library")
+    id("dab.android.hilt")
 }
 
 android {
@@ -10,13 +8,10 @@ android {
 }
 
 dependencies {
-    implementation(project(mapOf("path" to ":core:data")))
-    implementation(project(mapOf("path" to ":core:model")))
+    implementation(project(":core:data"))
+    implementation(project(":core:model"))
 
-    implementation(Dependencies.Jetpack.Hilt)
-    implementation(Dependencies.Coroutine)
-
-    implementation(Dependencies.Orbit.Main)
-
-    kapt(Dependencies.Compiler.Hilt)
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.kotlinx.coroutines.android)
+    implementation(libs.orbit.viewmodel)
 }

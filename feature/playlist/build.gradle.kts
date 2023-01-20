@@ -1,20 +1,19 @@
 plugins {
-    id("com.android.library")
-    id("org.jetbrains.kotlin.android")
-    id("kotlin-android")
+    id("dab.android.library")
+    id("dab.android.library.compose")
+    id("dab.android.hilt")
 }
 
 android {
     namespace = "com.dab.android.feature.playlist"
-    buildFeatures {
-        compose = true
-    }
-
-    composeOptions {
-        kotlinCompilerExtensionVersion = Versions.Compose.Main
-    }
 }
 
 dependencies {
-    Dependencies.Compose.forEach(::implementation)
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.navigation.compose)
+    implementation(libs.androidx.lifecycle.runtimeCompose)
+    implementation(libs.androidx.hilt.navigation.compose)
+    implementation(libs.orbit.viewmodel)
+    implementation(libs.androidx.compose.material)
+    implementation(libs.androidx.compose.material3)
 }

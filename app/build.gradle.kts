@@ -1,10 +1,9 @@
+import com.dab.android.DabBuildType
+
 plugins {
-    id("com.android.application")
-//    id("com.android.library")
-    id("kotlin-android")
-    id("kotlin-kapt")
-    id("kotlin-parcelize")
-    id("dagger.hilt.android.plugin")
+    id("dab.android.application")
+    id("dab.android.application.compose")
+    id("dab.android.hilt")
 }
 
 android {
@@ -12,26 +11,21 @@ android {
 
     defaultConfig {
         applicationId = "com.dab.android.app"
-        versionCode = Versions.versionCode
-        versionName = Versions.versionName
+        versionCode = 1
+        versionName = "1.0"
+
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
-        debug {
-            aaptOptions.cruncherEnabled = false // png optimization (default: true)
+        val debug by getting {
+            applicationIdSuffix = DabBuildType.DEBUG.applicationIdSuffix
         }
-
-        // TODO
-        /*release {
-            signingConfig = signingConfigs.getByName("release")
-        }*/
-    }
-    buildFeatures {
-        compose = true
-    }
-
-    composeOptions {
-        kotlinCompilerExtensionVersion = Versions.Compose.Main
+        val release by getting {
+            isMinifyEnabled = true
+            applicationIdSuffix = DabBuildType.RELEASE.applicationIdSuffix
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+        }
     }
 }
 dependencies {
@@ -46,28 +40,16 @@ dependencies {
     implementation(project(":feature:search"))
     implementation(project(":feature:info"))
 
-    implementation(Dependencies.Ktx.Core)
-    implementation(Dependencies.Ktx.Trace)
-    implementation(Dependencies.Ktx.AppCompat)
-    implementation(Dependencies.Ktx.Material)
-    implementation(Dependencies.Ktx.Accompanist)
-    implementation(Dependencies.Ktx.Splash)
+    implementation(libs.accompanist.systemuicontroller)
+    implementation(libs.androidx.activity.compose)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.compose.runtime)
+    implementation(libs.androidx.compose.material)
+    implementation(libs.androidx.compose.material3)
+    implementation(libs.androidx.lifecycle.runtimeCompose)
+    implementation(libs.androidx.hilt.navigation.compose)
+    implementation(libs.androidx.navigation.compose)
 
-
-    val dependencies = listOf(
-        Dependencies.Jetpack.Hilt,
-    ).dependenciesFlatten()
-    dependencies.forEach(::implementation)
-
-    implementation(Dependencies.Orbit.Main)
-    implementation(Dependencies.Jetpack.Hilt)
-
-    kapt(Dependencies.Compiler.Hilt)
-    Dependencies.Compose.forEach(::implementation)
-    Dependencies.Debug.Compose.forEach(::debugImplementation)
-
-    testImplementation(Dependencies.Orbit.Test)
-    Dependencies.Test.forEach { testDependency ->
-        testImplementation(testDependency)
-    }
+    implementation(libs.coil.kt)
 }

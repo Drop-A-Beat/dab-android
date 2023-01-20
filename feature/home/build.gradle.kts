@@ -1,20 +1,11 @@
 plugins {
-    id("com.android.library")
-    id("org.jetbrains.kotlin.android")
-    id("kotlin-android")
-    id("kotlin-kapt")
-    id("dagger.hilt.android.plugin")
+    id("dab.android.library")
+    id("dab.android.library.compose")
+    id("dab.android.hilt")
 }
 
 android {
     namespace = "com.dab.android.feature.home"
-    buildFeatures {
-        compose = true
-    }
-
-    composeOptions {
-        kotlinCompilerExtensionVersion = Versions.Compose.Main
-    }
 }
 
 dependencies {
@@ -25,13 +16,12 @@ dependencies {
     implementation(project(":core:model"))
     implementation(project(":core:ui"))
 
-    Dependencies.Compose.forEach(::implementation)
-    implementation(Dependencies.Ktx.Accompanist)
-    implementation(Dependencies.Jetpack.Hilt)
-    implementation(Dependencies.Coroutine)
-
-    implementation(Dependencies.Orbit.Main)
-    implementation(Dependencies.Image.Coil)
-
-    kapt(Dependencies.Compiler.Hilt)
+    implementation(libs.accompanist.swiperefresh)
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.navigation.compose)
+    implementation(libs.androidx.lifecycle.runtimeCompose)
+    implementation(libs.androidx.hilt.navigation.compose)
+    implementation(libs.orbit.viewmodel)
+    implementation(libs.androidx.compose.material)
+    implementation(libs.androidx.compose.material3)
 }

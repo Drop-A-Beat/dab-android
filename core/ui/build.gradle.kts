@@ -1,18 +1,10 @@
 plugins {
-    id("com.android.library")
-    id("org.jetbrains.kotlin.android")
-    id("kotlin-android")
+    id("dab.android.library")
+    id("dab.android.library.compose")
 }
 
 android {
     namespace = "com.dab.android.core.ui"
-    buildFeatures {
-        compose = true
-    }
-
-    composeOptions {
-        kotlinCompilerExtensionVersion = Versions.Compose.Main
-    }
 }
 
 dependencies {
@@ -21,6 +13,7 @@ dependencies {
     implementation(project(":core:data"))
     implementation(project(":core:model"))
 
-    Dependencies.Compose.forEach(::implementation)
-    implementation(Dependencies.Image.Coil)
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.coil.kt)
+    implementation(libs.coil.kt.compose)
 }

@@ -1,9 +1,6 @@
 plugins {
-    id("com.android.library")
-    id("kotlin-android")
-    id("kotlin-kapt")
-    id ("kotlin-parcelize")
-    id("dagger.hilt.android.plugin")
+    id("dab.android.library")
+    id("dab.android.hilt")
 }
 
 android {
@@ -13,7 +10,9 @@ android {
 dependencies {
     implementation(project(":core:model"))
 
-    implementation(Dependencies.Jetpack.Hilt)
-    implementation(Dependencies.Coroutine)
-    kapt(Dependencies.Compiler.Hilt)
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.kotlinx.coroutines.android)
+
+    testImplementation(libs.kotlinx.coroutines.test)
+    testImplementation(libs.mockk)
 }

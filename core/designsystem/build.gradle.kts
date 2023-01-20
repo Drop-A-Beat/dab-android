@@ -1,19 +1,15 @@
 plugins {
-    id("com.android.library")
-    id("kotlin-android")
+    id("dab.android.library")
+    id("dab.android.library.compose")
 }
 
 android {
     namespace = "com.dab.android.core.designsystem"
-
-    buildFeatures {
-        compose = true
-    }
-    composeOptions {
-        kotlinCompilerExtensionVersion = Versions.Compose.Main
-    }
 }
 
 dependencies {
-    Dependencies.Compose.forEach(::implementation)
+    implementation(libs.androidx.core.ktx)
+    api(libs.androidx.compose.material3)
+    api(libs.androidx.compose.ui.util)
+    api(libs.androidx.compose.runtime)
 }
