@@ -12,7 +12,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
@@ -20,8 +19,6 @@ import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.dab.android.core.designsystem.theme.DabTheme
 import com.dab.android.core.model.Album
-import com.dab.android.core.ui.R
-
 @Composable
 fun AlbumCard(album: Album) {
     Column( modifier =
@@ -60,7 +57,6 @@ internal fun AlbumImage(modifier: Modifier, imageUrl: String) {
     Card(modifier = modifier) {
         AsyncImage(
             modifier = Modifier.fillMaxSize(),
-            placeholder = painterResource(id = R.drawable.ic_playlist),
             contentScale = ContentScale.Crop,
             model = imageUrl,
             contentDescription = null

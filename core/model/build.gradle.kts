@@ -3,5 +3,5 @@ plugins {
 }
 
 dependencies {
-    implementation(Dependencies.Coroutine)
+    implementation(libs.kotlinx.coroutines.android)
 }

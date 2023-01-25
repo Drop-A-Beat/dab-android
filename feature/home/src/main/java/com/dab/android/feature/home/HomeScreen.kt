@@ -17,7 +17,6 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -29,7 +28,6 @@ import com.dab.android.core.designsystem.component.MainTitle
 import com.dab.android.core.designsystem.component.StaggeredGrid
 import com.dab.android.core.designsystem.icon.DabIcons
 import com.dab.android.core.designsystem.theme.DabTheme
-import com.dab.android.core.ui.R
 import com.dab.android.core.ui.album.AlbumsUiState
 import com.dab.android.core.ui.album.albumList
 import com.dab.android.core.ui.song.TopSongList
@@ -78,7 +76,6 @@ private fun HomeScreen(
             AsyncImage(
                 modifier = Modifier
                     .height(animateImageSize),
-                placeholder = painterResource(id = R.drawable.ic_playlist),
                 contentScale = ContentScale.Crop,
                 model = "https://charts-static.billboard.com/img/2022/07/steve-lacy-d2o-badhabit-l6b-344x344.jpg",
                 contentDescription = null

@@ -13,6 +13,8 @@ dependencies {
     implementation(project(":core:data"))
     implementation(project(":core:model"))
 
+    api(libs.accompanist.systemuicontroller)
+    api(libs.androidx.tracing.ktx)
     implementation(libs.androidx.core.ktx)
     implementation(libs.coil.kt)
     implementation(libs.coil.kt.compose)
