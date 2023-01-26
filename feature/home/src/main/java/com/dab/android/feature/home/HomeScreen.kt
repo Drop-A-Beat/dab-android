@@ -1,5 +1,6 @@
 package com.dab.android.feature.home
 
+import java.util.Random
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Box
@@ -14,8 +15,8 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
@@ -68,16 +69,17 @@ private fun HomeScreen(
     modifier: Modifier = Modifier
 ) {
     val scrollState = rememberScrollState()
-    systemUiController.setStatusBarColor(if(scrollState.isInside()) Color.Transparent else DabTheme.colors.surfaceColor)
+//    systemUiController.setStatusBarColor(if(scrollState.isInside()) Color.Transparent else DabTheme.colors.surfaceColor)
     Box{
         val dynamicValue = 344.dp - Dp(scrollState.value / 2f)
         val animateImageSize = animateDpAsState(dynamicValue).value
         if(scrollState.isInside()) {
+            val randomIndex = remember { Random().nextInt(50)+1 }
+            val imageUrl = if(topAlbumUiState is AlbumsUiState.Success) topAlbumUiState.albums[randomIndex].imageUrl else null
             AsyncImage(
-                modifier = Modifier
-                    .height(animateImageSize),
+                modifier = Modifier.height(animateImageSize),
                 contentScale = ContentScale.Crop,
-                model = "https://charts-static.billboard.com/img/2022/07/steve-lacy-d2o-badhabit-l6b-344x344.jpg",
+                model = imageUrl,
                 contentDescription = null
             )
         }
@@ -105,7 +107,7 @@ private fun HomeScreen(
 }
 @Composable
 private fun RecentPlayed(topAlbumUiState: AlbumsUiState) {
-    MainTitle("Recently Played", modifier = Modifier.padding(top = 0.dp))
+    MainTitle("Recently Played", modifier = Modifier.padding(top = 0.dp), color = DabTheme.colors.iconColor)
     LazyRow {
         albumList(topAlbumUiState)
     }

@@ -10,7 +10,6 @@ import kotlinx.coroutines.flow.filterNot
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onStart
 import org.orbitmvi.orbit.syntax.simple.intent
-import org.orbitmvi.orbit.syntax.simple.postSideEffect
 import org.orbitmvi.orbit.syntax.simple.reduce
 import javax.inject.Inject
 
@@ -28,7 +27,7 @@ class HomeViewModel @Inject constructor(
             .map<List<Album>, AlbumsUiState>(AlbumsUiState::Success)
             .onStart { AlbumsUiState.Loading }
             .catch { AlbumsUiState.Error }
-            .collect { postSideEffect(HomeSideEffect.GetTopAlbum(albumsUiState = it)) }
+            .collect { reduce { state.copy(topAlbumState = it) } }
     }
     fun setTopAlbum(albumsUiState: AlbumsUiState) = intent {
         reduce { state.copy(topAlbumState = albumsUiState) }
